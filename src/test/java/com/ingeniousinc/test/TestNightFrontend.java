@@ -2,7 +2,9 @@ package com.ingeniousinc.test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestNightFrontend {
@@ -21,11 +23,27 @@ public class TestNightFrontend {
 		
 		// Max the window
 		driver.manage().window().maximize();
+		
+		WebElement btn = driver.findElement(By.id("showLoginModalBtn"));
+		
+		btn.click();
+		
+		WebElement txtUsername = driver.findElement(By.name("username"));
+		
+		txtUsername.sendKeys("tommymember1");
+		
+		WebElement txtPassword = driver.findElement(By.name("password"));
+		
+		txtPassword.sendKeys("7Kcr4iv3");
+		
+		WebElement btnLogin = driver.findElement(By.id("headerLoginFormCtlPwdBtn"));
+		
+		btnLogin.click();
 
-		// Sleep for 3 secs
-		Thread.sleep(3000);
-
-		// Close the browser
-		driver.quit();
+//		// Sleep for 3 secs
+//		Thread.sleep(3000);
+//
+//		// Close the browser
+//		driver.quit();
 	}
 }
